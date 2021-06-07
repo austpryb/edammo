@@ -33,13 +33,26 @@ def handle_message(message):
         except Exception as e:
             return "Error in payload parsing 'data' element, " + str(e) 
         try:
-            method = data['method']
+            # if authenticated already just pass to the next step
+            # auth = someAuthFunc()
+            pass
+        except Exception as e:
+            pass
+        ########################### PARSE METHOD FROM THIS BLOCK #########################
+        try:
+            method = data['method'] # AUTH, PREDICT, TRAIN, ETC.
         except Exception as e:
             return "Error in payload parsing 'method' element, " + str(e)
+        ########################### BUSINESS LOGIC HERE ##################################
         if method == 'PREDICT':
+            # features = data['features']
+            # return the results of a prediction
             pass
         elif method == 'TRAIN':
+            # samples = data['sample_location']
+            # do some training on the samples
             pass 
+        ############################# IF ANYTHING FAILS THROW THIS EXCEPTION ############
     except Exception as e:
         print("Error in wrapper parsing", str(e))
         return str(e)
