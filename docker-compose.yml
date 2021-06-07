@@ -1,0 +1,10 @@
+version: '3'
+services:
+  sandbox:
+    build:
+      context: .
+      #command: tail -f /dev/null
+    volumes:
+      - ./app:/usr/src/app
+    env_file:
+      - .env
