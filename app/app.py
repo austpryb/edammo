@@ -12,7 +12,7 @@ import requests
 
 logging.basicConfig(level=logging.DEBUG)
 
-TOPIC_NAME = "edammo_request"
+TOPIC_NAME = "edammo_core_request"
 
 @dataclass
 class PredictionParameters:
